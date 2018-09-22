@@ -40,6 +40,7 @@
 <body>
     <div id="application">
         <div class="container">
+            <div v-bind:style="{ fontSize: tweet.fontSize + 'px' }">
             <div id="twiter-user-twit">
                 @{{ twit.text }}
                 @{{ twit.created_at }}
