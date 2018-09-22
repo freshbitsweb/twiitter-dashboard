@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
 use TwitterStreamingApi;
+use Illuminate\Console\Command;
 
 class ListenForUserTwit extends Command
 {
@@ -38,6 +38,13 @@ class ListenForUserTwit extends Command
      */
     public function handle()
     {
-        //
+        TwitterStreamingApi::publicStream()
+            ->whenTweets(config('services.twitter.follow_user_id'), function (array $tweet) {
+                // Exclude retweeted twit
+                if (array_key_exists('retweeted_status', $tweet)) {
+                    return;
+                }
+            })->startListening()
+        ;
     }
 }
