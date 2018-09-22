@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use Carbon\Carbon;
 use TwitterStreamingApi;
 use Illuminate\Console\Command;
 use App\Events\NewTweetRecived;
@@ -51,7 +52,7 @@ class ListenForUserTweet extends Command
 
                 broadcast(new NewTweetRecived([
                     'text' => $tweet['text'],
-                    'created_at' => $tweet['created_at'],
+                    'created_at' => Carbon::createFromTimeStamp(strtotime($tweet['created_at']))->diffForHumans(),
                 ]))->toOthers();
             })->startListening()
         ;

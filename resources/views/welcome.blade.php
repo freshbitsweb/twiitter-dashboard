@@ -35,15 +35,25 @@
         #application {
             height: 100%;
         }
+        .tweet-time {
+            font-size: 30px;
+            color: #00a78e;
+            border-radius: 2px;
+            box-shadow: 1px 0px 11px #ffffff;
+            margin-top: 28px;
+            margin: 15px 20%;
+        }
     </style>
 </head>
 <body>
     <div id="application">
         <div class="container">
             <div v-bind:style="{ fontSize: tweet.fontSize + 'px' }">
-            <div id="twiter-user-twit">
-                @{{ twit.text }}
-                @{{ twit.created_at }}
+                @{{ tweet.text }}
+            </div>
+
+            <div class="tweet-time">
+                @{{ tweet.created_at }}
             </div>
         </div>
     </div>
