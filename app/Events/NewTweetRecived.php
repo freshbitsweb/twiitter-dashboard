@@ -9,20 +9,20 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 
-class NewTwitRecived implements ShouldBroadcast, ShouldBroadcastNow
+class NewTweetRecived implements ShouldBroadcast, ShouldBroadcastNow
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $twit;
+    public $tweet;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($twit)
+    public function __construct($tweet)
     {
-        $this->twit = $twit;
+        $this->tweet = $tweet;
     }
 
     /**
@@ -32,6 +32,6 @@ class NewTwitRecived implements ShouldBroadcast, ShouldBroadcastNow
      */
     public function broadcastOn()
     {
-        return new Channel('new-twit-channel');
+        return new Channel('new-tweet-channel');
     }
 }

@@ -18,7 +18,7 @@ const app = new Vue({
     el: '#application',
 
     data: {
-        twit: {
+        tweet: {
             text: 'હજી કય મડુ નથિ ભુરા.',
             created_at: '',
             fontSize: 100,
@@ -26,21 +26,21 @@ const app = new Vue({
     },
 
     watch: {
-        'twit.text': function (text) {
+        'tweet.text': function (text) {
             if (text.length > 200) {
-                this.twit.fontSize = 40;
+                this.tweet.fontSize = 40;
             } else if (text.length > 80) {
-                this.twit.fontSize = 70;
+                this.tweet.fontSize = 70;
             } else {
-                this.twit.fontSize = 100;
+                this.tweet.fontSize = 100;
             }
         }
     },
 
     created: function () {
-        window.Echo.channel('new-twit-channel').listen('NewTwitRecived', (e) => {
-            this.twit.text = e.twit.text;
-            this.twit.created_at = e.twit.created_at;
+        window.Echo.channel('new-tweet-channel').listen('NewTweetRecived', (e) => {
+            this.tweet.text = e.tweet.text;
+            this.tweet.created_at = e.tweet.created_at;
         });
     }
 });

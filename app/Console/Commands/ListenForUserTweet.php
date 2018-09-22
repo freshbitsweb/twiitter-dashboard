@@ -4,23 +4,23 @@ namespace App\Console\Commands;
 
 use TwitterStreamingApi;
 use Illuminate\Console\Command;
-use App\Events\NewTwitRecived;
+use App\Events\NewTweetRecived;
 
-class ListenForUserTwit extends Command
+class ListenForUserTweet extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'twitter:listen-for-user-twit';
+    protected $signature = 'twitter:listen-for-user-tweet';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Listen for user twit on Twitter.';
+    protected $description = 'Listen for user tweet on Twitter.';
 
     /**
      * Create a new command instance.
@@ -41,7 +41,7 @@ class ListenForUserTwit extends Command
     {
         TwitterStreamingApi::publicStream()
             ->whenTweets(config('services.twitter.follow_user_id'), function (array $tweet) {
-                // Exclude retweeted twit
+                // Exclude retweeted tweet
                 if (
                     array_key_exists('retweeted_status', $tweet) ||
                     array_key_exists('delete', $tweet)
@@ -49,7 +49,7 @@ class ListenForUserTwit extends Command
                     return;
                 }
 
-                broadcast(new NewTwitRecived([
+                broadcast(new NewTweetRecived([
                     'text' => $tweet['text'],
                     'created_at' => $tweet['created_at'],
                 ]))->toOthers();

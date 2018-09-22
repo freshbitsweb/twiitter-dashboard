@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \App\Console\Commands\ListenForUserTwit::class,
+        \App\Console\Commands\ListenForUserTweet::class,
     ];
 
     /**
