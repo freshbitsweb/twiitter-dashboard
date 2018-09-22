@@ -4,7 +4,6 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use TwitterStreamingApi;
-use Illuminate\Support\Facades\Log;
 
 class ListenForUserTwit extends Command
 {
