@@ -35,4 +35,8 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'twitter' => [
+        'follow_user_id' =>  env('FOLLOW_USER_ID'),
+    ],
+
 ];
