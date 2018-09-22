@@ -49,7 +49,10 @@ class ListenForUserTwit extends Command
                     return;
                 }
 
-                broadcast(new NewTwitRecived($tweet))->toOthers();
+                broadcast(new NewTwitRecived([
+                    'text' => $tweet['text'],
+                    'created_at' => $tweet['created_at'],
+                ]))->toOthers();
             })->startListening()
         ;
     }
