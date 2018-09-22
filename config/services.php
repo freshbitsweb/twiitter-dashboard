@@ -36,7 +36,7 @@ return [
     ],
 
     'twitter' => [
-        'follow_user_id' =>  env('FOLLOW_USER_ID'),
+        'follow_user_id' => env('FOLLOW_USER_ID'),
     ],
 
 ];
