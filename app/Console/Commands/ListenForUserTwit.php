@@ -41,7 +41,10 @@ class ListenForUserTwit extends Command
         TwitterStreamingApi::publicStream()
             ->whenTweets(config('services.twitter.follow_user_id'), function (array $tweet) {
                 // Exclude retweeted twit
-                if (array_key_exists('retweeted_status', $tweet)) {
+                if (
+                    array_key_exists('retweeted_status', $tweet) ||
+                    array_key_exists('delete', $tweet)
+                ) {
                     return;
                 }
             })->startListening()
