@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use TwitterStreamingApi;
 use Illuminate\Console\Command;
+use App\Events\NewTwitRecived;
 
 class ListenForUserTwit extends Command
 {
@@ -47,6 +48,8 @@ class ListenForUserTwit extends Command
                 ) {
                     return;
                 }
+
+                broadcast(new NewTwitRecived($tweet))->toOthers();
             })->startListening()
         ;
     }
