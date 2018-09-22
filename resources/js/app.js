@@ -21,6 +21,7 @@ const app = new Vue({
         tweet: {
             text: 'હજી કય મડુ નથિ ભુરા.',
             created_at: '1 sec ago',
+            userName: '',
             fontSize: 100,
         }
     },
@@ -41,6 +42,7 @@ const app = new Vue({
         window.Echo.channel('new-tweet-channel').listen('NewTweetRecived', (e) => {
             this.tweet.text = e.tweet.text;
             this.tweet.created_at = e.tweet.created_at;
+            this.tweet.userName = e.tweet.user_name;
         });
     }
 });

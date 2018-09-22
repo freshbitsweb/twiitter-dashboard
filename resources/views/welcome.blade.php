@@ -45,6 +45,7 @@
         }
     </style>
 </head>
+
 <body>
     <div id="application">
         <div class="container">
@@ -53,6 +54,12 @@
             </div>
 
             <div class="tweet-time">
+                <span v-show="tweet.userName">
+                    by
+                    <strong>
+                        @{{ tweet.userName }}
+                    </strong>
+                </span>
                 @{{ tweet.created_at }}
             </div>
         </div>

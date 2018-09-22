@@ -55,6 +55,7 @@ class ListenForUserTweet extends Command
                 broadcast(new NewTweetRecived([
                     'text' => $tweet['text'],
                     'created_at' => Carbon::createFromTimeStamp(strtotime($tweet['created_at']))->diffForHumans(),
+                    'user_name' => $tweet['user']['name'],
                 ]))->toOthers();
             })->startListening()
         ;
