@@ -20,7 +20,7 @@ const app = new Vue({
     data: {
         tweet: {
             text: 'હજી કય મડુ નથિ ભુરા.',
-            created_at: '1 sec ago',
+            created_at: 'a few seconds ago',
             userName: '',
             fontSize: 100,
         }
