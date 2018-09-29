@@ -60,7 +60,7 @@
                         @{{ tweet.userName }}
                     </strong>
                 </span>
-                @{{ tweet.created_at }}
+                @{{ tweet.from_created_at }}
             </div>
         </div>
     </div>

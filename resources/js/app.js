@@ -20,9 +20,19 @@ const app = new Vue({
     data: {
         tweet: {
             text: 'હજી કય મડુ નથિ ભુરા.',
-            created_at: 'a few seconds ago',
+            created_at: Date.now(),
+            from_created_at: '',
             userName: '',
             fontSize: 100,
+        }
+    },
+
+    methods : {
+        updateCreatedTime : function() {
+            var application = this;
+            setInterval(function() {
+                application.tweet.from_created_at = moment(application.tweet.created_at).fromNow();
+            }, 3000);
         }
     },
 
@@ -44,5 +54,7 @@ const app = new Vue({
             this.tweet.created_at = e.tweet.created_at;
             this.tweet.userName = e.tweet.user_name;
         });
+
+        this.updateCreatedTime();
     }
 });
