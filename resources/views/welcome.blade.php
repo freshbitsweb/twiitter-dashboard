@@ -66,6 +66,9 @@
     </div>
 
     <!-- Scripts -->
+    <script>
+        var latestTweet = @json($tweet);
+    </script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 </html>

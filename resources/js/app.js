@@ -55,6 +55,10 @@ const app = new Vue({
             this.tweet.userName = e.tweet.user_name;
         });
 
+        this.tweet.text = latestTweet.text;
+        this.tweet.created_at = latestTweet.created_at;
+        this.tweet.userName = latestTweet.user_name;
+
         this.updateCreatedTime();
     }
 });
