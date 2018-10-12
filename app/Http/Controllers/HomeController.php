@@ -13,7 +13,7 @@ class HomeController extends Controller
      **/
     public function index()
     {
-        $userTimeline = getUserLatestTweet();
+        $userTimeline = $this->getUserLatestTweet();
 
         $tweet = [
             'text' => $userTimeline[0]->text,
