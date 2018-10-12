@@ -20,41 +20,46 @@
         }
         body {
             color: azure;
-            background-color: black;
             font-family: 'Gamja Flower', cursive;
             height: 100%;
             padding: 0 30px;
         }
         .container {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
             text-align: center;
             height: 100%;
             width: 50%;
+            margin-left: 0%;
+            margin-top: 2%;
+            padding: 5%;
         }
         #application {
             height: 100%;
+            position: relative;
         }
         .layout-box {
-            border-radius: 2px;
-            box-shadow: 1px 0px 11px #ffffff;
             margin-top: 28px;
             margin: 15px 10%;
         }
         .tweet-time {
-            font-size: 30px;
+            font-size: 21px;
             color: #00a78e;
+            margin-top: 12%;
         }
         .tweet-text {
             color: white;
-            padding: 20px 30px;
+            padding: 50px 30px 20px;
             margin: 0;
+        }
+        .background-image {
+            position: absolute;
+            height: 93%;
         }
     </style>
 </head>
 
 <body>
+    <img src="{{ asset('images/screen.png') }}" class="background-image">
+
     <div id="application">
         <div class="container">
             <div class="layout-box tweet-text" v-bind:style="{ fontSize: tweet.fontSize + 'px' }">
