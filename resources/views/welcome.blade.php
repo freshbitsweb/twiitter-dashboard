@@ -23,6 +23,7 @@
             background-color: black;
             font-family: 'Gamja Flower', cursive;
             height: 100%;
+            padding: 0 30px;
         }
         .container {
             display: flex;
@@ -35,13 +36,20 @@
         #application {
             height: 100%;
         }
-        .tweet-time {
-            font-size: 30px;
-            color: #00a78e;
+        .layout-box {
             border-radius: 2px;
             box-shadow: 1px 0px 11px #ffffff;
             margin-top: 28px;
-            margin: 15px 20%;
+            margin: 15px 10%;
+        }
+        .tweet-time {
+            font-size: 30px;
+            color: #00a78e;
+        }
+        .tweet-text {
+            color: white;
+            padding: 20px 30px;
+            margin: 0;
         }
     </style>
 </head>
@@ -49,11 +57,11 @@
 <body>
     <div id="application">
         <div class="container">
-            <div v-bind:style="{ fontSize: tweet.fontSize + 'px' }">
+            <div class="layout-box tweet-text" v-bind:style="{ fontSize: tweet.fontSize + 'px' }">
                 @{{ tweet.text }}
             </div>
 
-            <div class="tweet-time">
+            <div class="layout-box tweet-time">
                 <span v-show="tweet.userName">
                     by
                     <strong>
