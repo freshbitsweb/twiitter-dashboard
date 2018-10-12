@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -38,12 +37,14 @@ const app = new Vue({
 
     watch: {
         'tweet.text': function (text) {
-            if (text.length > 200) {
+            if (text.length > 1 && text.length < 50) {
+                this.tweet.fontSize = 80;
+            } else if (text.length > 50 && text.length < 100) {
+                this.tweet.fontSize = 60;
+            } else if (text.length > 100 && text.length < 200) {
                 this.tweet.fontSize = 40;
-            } else if (text.length > 80) {
-                this.tweet.fontSize = 70;
             } else {
-                this.tweet.fontSize = 100;
+                this.tweet.fontSize = 30;
             }
         }
     },
