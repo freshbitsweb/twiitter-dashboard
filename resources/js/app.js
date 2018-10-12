@@ -27,10 +27,10 @@ const app = new Vue({
         }
     },
 
-    methods : {
-        updateCreatedTime : function() {
+    methods: {
+        updateCreatedTime: function () {
             var application = this;
-            setInterval(function() {
+            setInterval(function () {
                 application.tweet.from_created_at = moment(application.tweet.created_at).fromNow();
             }, 3000);
         }
