@@ -35,8 +35,8 @@ class HomeController extends Controller
 
         $twitter = new TwitterAPIExchange($this->getTwitterSettings());
         $userTimeline = $twitter
-            ->buildOauth('https://api.twitter.com/1.1/statuses/user_timeline.json', 'GET')
             ->setGetfield("?user_id=" . $followedUserIds[0] . "&count=1")
+            ->buildOauth('https://api.twitter.com/1.1/statuses/user_timeline.json', 'GET')
             ->performRequest()
         ;
 
