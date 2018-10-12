@@ -16,9 +16,9 @@ class HomeController extends Controller
         $userTimeline = $this->getUserLatestTweet();
 
         $tweet = [
-            'text' => $userTimeline[0]->text,
-            'user_name' => $userTimeline[0]->user->name,
-            'created_at' => $userTimeline[0]->created_at,
+            'text' => $userTimeline->text,
+            'user_name' => $userTimeline->user->name,
+            'created_at' => $userTimeline->created_at,
         ];
 
         return view('welcome', compact('tweet'));
@@ -40,7 +40,7 @@ class HomeController extends Controller
             ->performRequest()
         ;
 
-        return json_decode($userTimeline);
+        return json_decode($userTimeline)[0];
     }
 
     /**
