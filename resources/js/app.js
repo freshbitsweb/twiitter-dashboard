@@ -38,7 +38,7 @@ const app = new Vue({
     watch: {
         'tweet.text': function (text) {
             if (text.length > 1 && text.length < 50) {
-                this.tweet.fontSize = 80;
+                this.tweet.fontSize = 57;
             } else if (text.length > 50 && text.length < 100) {
                 this.tweet.fontSize = 60;
             } else if (text.length > 100 && text.length < 200) {

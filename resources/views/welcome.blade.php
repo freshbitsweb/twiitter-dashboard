@@ -23,14 +23,15 @@
             font-family: 'Gamja Flower', cursive;
             height: 100%;
             padding: 0 30px;
+            margin-left: 18%;
         }
         .container {
             text-align: center;
             height: 100%;
-            width: 50%;
+            width: 67%;
             margin-left: 0%;
             margin-top: 2%;
-            padding: 5%;
+            padding: 5% 4%;
         }
         #application {
             height: 100%;
