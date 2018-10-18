@@ -31,7 +31,7 @@
             width: 67%;
             margin-left: 0%;
             margin-top: 2%;
-            padding: 5% 4%;
+            padding: 3% 4% 0;
         }
         #application {
             height: 100%;
@@ -44,7 +44,7 @@
         .tweet-time {
             font-size: 21px;
             color: #00a78e;
-            margin-top: 12%;
+            margin-top: 3%;
         }
         .tweet-text {
             color: white;
